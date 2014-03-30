@@ -902,7 +902,13 @@ xenomai () {
 
 	echo "dir: xenomai - prepare_kernel"
 	# Add the rest of xenomai to the kernel
-	${DIR}/ignore/xenomai/scripts/prepare-kernel.sh --linux=./ --arch=arm
+
+	# how patches/xenomai/xenomai-out.patch got produced:
+	# ${DIR}/ignore/xenomai/scripts/prepare-kernel.sh --linux=./ --arch=arm --outpatch="${DIR}/patches/xenomai/xenomai-out.patch"
+
+	# Apply patch equivalent of ${DIR}/ignore/xenomai/scripts/prepare-kernel.sh --linux=./ --arch=arm 
+	git apply "${DIR}/patches/xenomai/xenomai/xenomai-out.patch"
+
 }
 
 am33x
